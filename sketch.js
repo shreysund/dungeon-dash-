@@ -28,73 +28,7 @@ function setup() {
   
   
 
-  bg=createSprite(wWidth/2,wHeight/2,10,10)
-  bg.addImage(bgImage);
-  bg.scale=3
-  bg.velocityX=-2
-
-  knight=createSprite(100,wHeight-350,20,20);
-  knight.addImage(knightImage);
-  knight.scale=0.25
-
-  monster=createSprite(100,wHeight-600, 100, 20);
-  monster.addImage(monsterImage);
-  monster.scale=0.25
-  
-  floorGroup=new Group()
  
-  
-  //monster
-  f8=createSprite(100, wHeight-600,100,20)
-  f2=createSprite(300,wHeight-500,100,20)
-  f3=createSprite(500,wHeight-600,100,20)
-  f4=createSprite(700,wHeight-550,100,20)
-  f5=createSprite(900,wHeight-700,100,20)
-  f6=createSprite(1150,wHeight-600,100,20)
-  f7=createSprite(1400,wHeight-400,100,20)
-  
-  //knight
-  f1=createSprite(100,wHeight-250,100,20)
-  f9=createSprite(300,wHeight-150,100,20)
-  f10=createSprite(500,wHeight-250,100,20)
-  f11=createSprite(700,wHeight-200,100,20)
-  f12=createSprite(900,wHeight-350,100,20)
-  f13=createSprite(1150,wHeight-250,100,20)
-  f14=createSprite(1400,wHeight-50,100,20)
- 
-  f2.shapeColor=("white")
-  f3.shapeColor=("white")
-  f4.shapeColor=("white")
-  f5.shapeColor=("white")
-  f6.shapeColor=("white")
-  f7.shapeColor=("white")
-  f8.shapeColor=("white")
-  
-  f1.shapeColor=rgb(105, 82, 65)
-  f9.shapeColor=rgb(105, 82, 65)
-  f10.shapeColor=rgb(105, 82, 65)
-  f11.shapeColor=rgb(105, 82, 65)
-  f12.shapeColor=rgb(105, 82, 65)
-  f13.shapeColor=rgb(105, 82, 65)
-  f14.shapeColor=rgb(105, 82, 65)
-
-  f1.velocityX=-3
-  f2.velocityX=-3
-  f3.velocityX=-3
-  f4.velocityX=-3
-  f5.velocityX=-3
-  f6.velocityX=-3
-  f7.velocityX=-3
-  f8.velocityX=-3
-  f9.velocityX=-3
-  f10.velocityX=-3
-  f11.velocityX=-3
-  f12.velocityX=-3
-  f13.velocityX=-3
-  f14.velocityX=-3
- 
-  
-  
 
   //monsterGroup=new Group()
 
@@ -111,10 +45,13 @@ function draw() {
     text("If the characters touch eachother, or move out of frame the game will end", displayWidth/2-200, displayHeight/3)
     text("press SPACE to start",displayWidth/2-300,displayHeight/2)
   }  
-  if(keyDown==="space"){
-    gameState="play"
+  if(keyDown("space")){
+    gameState="start"
   }
-
+if(gameState==="start"){
+  start()
+  gameState="play"
+}
   if(gameState==="play"){
   score=score+Math.round(frameRate()/30)
   if(bg.x<=0){
@@ -231,7 +168,75 @@ function spawnFloor(){
     floorGroup.add(floor)
   }
 }
+function start(){
+  bg=createSprite(wWidth/2,wHeight/2,10,10)
+  bg.addImage(bgImage);
+  bg.scale=3
+  bg.velocityX=-2
 
+  knight=createSprite(100,wHeight-350,20,20);
+  knight.addImage(knightImage);
+  knight.scale=0.25
+
+  monster=createSprite(100,wHeight-600, 100, 20);
+  monster.addImage(monsterImage);
+  monster.scale=0.25
+  
+  floorGroup=new Group()
+ 
+  
+  //monster
+  f8=createSprite(100, wHeight-600,100,20)
+  f2=createSprite(300,wHeight-500,100,20)
+  f3=createSprite(500,wHeight-600,100,20)
+  f4=createSprite(700,wHeight-550,100,20)
+  f5=createSprite(900,wHeight-700,100,20)
+  f6=createSprite(1150,wHeight-600,100,20)
+  f7=createSprite(1400,wHeight-400,100,20)
+  
+  //knight
+  f1=createSprite(100,wHeight-250,100,20)
+  f9=createSprite(300,wHeight-150,100,20)
+  f10=createSprite(500,wHeight-250,100,20)
+  f11=createSprite(700,wHeight-200,100,20)
+  f12=createSprite(900,wHeight-350,100,20)
+  f13=createSprite(1150,wHeight-250,100,20)
+  f14=createSprite(1400,wHeight-50,100,20)
+ 
+  f2.shapeColor=("white")
+  f3.shapeColor=("white")
+  f4.shapeColor=("white")
+  f5.shapeColor=("white")
+  f6.shapeColor=("white")
+  f7.shapeColor=("white")
+  f8.shapeColor=("white")
+  
+  f1.shapeColor=rgb(105, 82, 65)
+  f9.shapeColor=rgb(105, 82, 65)
+  f10.shapeColor=rgb(105, 82, 65)
+  f11.shapeColor=rgb(105, 82, 65)
+  f12.shapeColor=rgb(105, 82, 65)
+  f13.shapeColor=rgb(105, 82, 65)
+  f14.shapeColor=rgb(105, 82, 65)
+
+  f1.velocityX=-3
+  f2.velocityX=-3
+  f3.velocityX=-3
+  f4.velocityX=-3
+  f5.velocityX=-3
+  f6.velocityX=-3
+  f7.velocityX=-3
+  f8.velocityX=-3
+  f9.velocityX=-3
+  f10.velocityX=-3
+  f11.velocityX=-3
+  f12.velocityX=-3
+  f13.velocityX=-3
+  f14.velocityX=-3
+ 
+  
+  
+}
 /*function spawnMonster(){
   if(frameCount%250===0){
     monster=createSprite(floor.x,floor.y-70)
@@ -241,3 +246,4 @@ function spawnFloor(){
     monsterGroup.add(monster)
   }
 }*/
+
